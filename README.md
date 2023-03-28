@@ -10,7 +10,7 @@ The first thing to do is to cloe te repository from [Github](https://github.com/
 
 ## Install the project dependencies from compose
 install all the dependencies of the project. This is what allows you to install Laravel itself, among other packages needed to start your application. Run
-* compose install 
+* composer install 
 
 ## Create a copy of your .env file
 
