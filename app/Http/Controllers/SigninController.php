@@ -14,10 +14,11 @@ class SigninController extends Controller
         $formFields = $request->validate([
             'name' => ['required', 'min:3'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
+            'phone' => ['required'],
             'role' => ['required'],
             'password' => 'required|confirmed|min:4'
         ]);
-
+        $formFields['reg'] = '';
         $formFields['password'] = bcrypt($formFields['password']);
         // dd($formFields);
         $user = User::create($formFields);
@@ -37,7 +38,7 @@ class SigninController extends Controller
             if(auth()->user()->role == 'Lecturer') {
                 return redirect('/home')->with('message', 'Sign In Successfully');
             }else{
-                return redirect('/chatify')->with('message', 'Sign In Successfully');
+                return redirect('/student/home')->with('message', 'Sign In Successfully');
             }
         }
         return back()->with('message', 'There is error,');

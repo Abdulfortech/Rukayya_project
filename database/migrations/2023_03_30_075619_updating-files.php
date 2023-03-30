@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('chapters', function (Blueprint $table) {
-            $table->id();
-            $table->string('category');
-            $table->string('name');
-            $table->string('file');
-            $table->string('score');
-            $table->timestamps();
+        Schema::table('chapters', function (Blueprint $table) {
+            $table->string('project_id');
         });
     }
 

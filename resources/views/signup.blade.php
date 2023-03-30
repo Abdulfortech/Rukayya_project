@@ -27,75 +27,9 @@
       </div>
       <!-- heading end -->
       <!-- form div -->
-      <!-- <form class="form-signin col-md-8 mx-auto" mehod="POST" action="{{ route('createAccount') }}" >
-        @csrf
-        <div class="row">
-            <div class="form-group col-md-4">
-                <input type="text" class="form-control font-14 pt-3 pb-3" placeholder="First Name" name="fname" required />
-                @error('fname')
-                <div class="msg">{{$message}}</div>
-                @enderror
-            </div>
-
-            <div class="form-group col-md-4">
-                <input type="text" class="form-control font-14 pt-3 pb-3" placeholder="Surname" name="sname" required>
-                @error('sname')
-                <div class="msg">{{$message}}</div>
-                @enderror
-            </div>
-
-            <div class="form-group col-md-4">
-                <input type="text" class="form-control font-14 pt-3 pb-3" placeholder="Last Name" name="lname" required>
-                @error('lname')
-                <div class="msg">{{$message}}</div>
-                @enderror
-            </div>
-
-            <div class="form-group col-md-8">
-                <input type="email" class="form-control font-14 pt-3 pb-3" placeholder="Email Address" name="email" required>
-                @error('email')
-                <div class="msg">{{$message}}</div>
-                @enderror
-            </div>
-
-            <div class="form-group col-md-4">
-                <select class="form-control" name="role" required>
-                    <option value="">Select Role</option>
-                    <option value="0">Lecturer</option>
-                </select>
-                @error('role')
-                <div class="msg">{{$message}}</div>
-                @enderror
-            </div>
-
-            <div class="form-group input-group col-md-6">
-                <input type="password" class="form-control font-14 pt-3 pb-3" placeholder="Password" name="password" required>
-                @error('password')
-                <div class="msg">{{$message}}</div>
-                @enderror
-            </div>
-
-            <div class="form-group input-group col-md-6">
-                <input type="password" class="form-control font-14 pt-3 pb-3" placeholder="Confirm Password" name="password_confirmation" required>
-                @error('password_confirmation')
-                <div class="msg">{{$message}}</div>
-                @enderror
-            </div>
-        </div>
-
-        <div class="form-group align-items-center">
-            <button type="submit" class="btn peach-bg text-white col-lg-12 rounded font-16 pt-2 pb-2" name="submit">Create an
-                Account</button>
-        </div>
-
-        <div class="text-center">
-          <hr>
-          <p class="font-16">Already Have Account? <a href="/signin" class="peach-color">Sign In</a></p>
-        </div>
-      </form> -->
         <form method="POST" action="{{ route('createAccount') }}" class="form-signin col-md-8 mx-auto">
             @csrf
-            <input type="number" class="form-control" name="role" value="Lecturer" hidden>
+            <input type="text" class="form-control" name="role" value="Lecturer" hidden>
             <div class="form-group text-start row">
                 <div class="col-md-12">
                     <label>Full Name</label>
@@ -109,6 +43,13 @@
                 <label>Email</label>
                 <input type="email" class="form-control" name="email" placeholder="email" required>
                 @error('email')
+                    <span class="text-danger">{{$message}}</span> 
+                @enderror
+            </div>
+            <div class="form-group text-start">
+                <label>Phone Number</label>
+                <input type="number" class="form-control" name="phone" placeholder="phone" required>
+                @error('phone')
                     <span class="text-danger">{{$message}}</span> 
                 @enderror
             </div>

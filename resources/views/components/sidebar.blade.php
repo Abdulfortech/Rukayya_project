@@ -3,7 +3,6 @@
     <nav id="sidebar">
 
     <ul class="list-unstyled text-white font-16">
-        <li class="pt-5"><img src="img/logo-white.png" width="200" alt=""></li>
         <li class="pt-3 text-white">
             <a class="text-white pl-4" href="/home">Home</a>
         </li>

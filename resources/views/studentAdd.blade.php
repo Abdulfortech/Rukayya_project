@@ -21,6 +21,22 @@
                     @enderror
                 </div>
             </div>
+            <div class="form-group text-start row">
+                <div class="col-md-6">
+                    <label>Reg No.</label>
+                    <input type="text" class="form-control" name="reg" required>
+                    @error('reg')
+                        <span class="text-danger">{{$message}}</span> 
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <label>Phone Number</label>
+                    <input type="number" class="form-control" name="phone" required>
+                    @error('phone')
+                        <span class="text-danger">{{$message}}</span> 
+                    @enderror
+                </div>
+            </div>
             <div class="form-group text-start">
                 <label>Email</label>
                 <input type="email" class="form-control" name="email" placeholder="email" required>

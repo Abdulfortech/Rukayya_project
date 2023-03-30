@@ -4,33 +4,30 @@
 
 <div class="row">
     {{-- navigation bar --}}
-    @include('components.sidebar')
+    @include('components.studentSidebar')
     {{-- end navigation bar --}}
 
     <div class="accordion" id="accordion">
-        <p class="font-30 peach-color font-weight-bold pt-5 pb-2">Projects</p>
+        <p class="font-30 peach-color font-weight-bold pt-5 pb-2">Project : {{$project->title}}</p>
         <table class="table">
-          <thead>
+          <thead> 
             <tr>
               <th>S/N</th>
-              <th>Reg. No</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone Number</th>
+              <th>Category</th>
+              <th>Filename</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            @php
+          @php
             $count = 1;
             @endphp
-          @foreach($students as $student)
-          
+          @foreach($chapters as $chapter)
             <tr>
               <td>{{$count}}</td>
-              <td>{{$student->reg}}</td>
-              <td>{{$student->name}}</td>
-              <td>{{$student->email}}</td>
-              <td>{{$student->phone}}</td>
+              <td>{{$chapter->category}}</td>
+              <td>{{$chapter->name}}</td>
+              <td><a href="/{{ asset('storage/'.$chapter->file) }}" target="_blank"><i class="fa fa-eye"></i>View</a></td>
             </tr>
             @php
             $count++;

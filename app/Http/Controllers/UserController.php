@@ -24,7 +24,9 @@ class UserController extends Controller
     public function index()
     {
         return view('home', [
-            'projects' => DB::table('projects')->leftJoin('users', 'projects.student_id', '=', 'users.id')
+            'projects' => DB::table('projects')
+            ->select('projects.*','users.name') 
+            ->leftJoin('users', 'projects.student_id', '=', 'users.id')
             ->get()
         ]);
     }
@@ -47,9 +49,17 @@ class UserController extends Controller
 
     public function projectShow(Request $request)
     {
+        // $project = ;
+        $chapters = DB::table('chapters')->where('project_id', $request->id)
+        ->get();
         return view('project', [
-            'files' => DB::table('ch_messages')->where('from_id', $request->id)
-            ->get()
+            // 'project' => Project::where('id', $request->id)->get(),
+            'project' => DB::table('projects')
+            ->select('projects.*','users.name as userName', 'users.reg as userReg', 'users.phone as userPhone')
+            ->where('projects.id', $request->id)
+            ->leftJoin('users', 'projects.student_id', '=', 'users.id')
+            ->get(),
+            'chapters' => $chapters
         ]);
         // dd($request->id);
     }
@@ -87,6 +97,8 @@ class UserController extends Controller
         $formFields = $request->validate([
             'name' => ['required', 'min:3'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
+            'reg' => ['required'],
+            'phone' => ['required'],
             'role' => ['required'],
             'password' => 'required|confirmed|min:4'
         ]);

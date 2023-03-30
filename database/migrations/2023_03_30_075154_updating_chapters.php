@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('chapters', function (Blueprint $table) {
             $table->id();
+            $table->string('student_id');
             $table->string('category');
             $table->string('name');
             $table->string('file');
