@@ -9,10 +9,10 @@
 
     <div class="accordion" id="accordion">
         <p class="font-30 peach-color font-weight-bold pt-5 pb-2">Plagiarism Detection Tool</p>
-        <!-- <form method="POST" action="{{ route('check') }}" enctype="multipart/form-data" class="form-signin col-md-8 mx-auto">
+        <form method="POST" action="{{ route('check') }}" enctype="multipart/form-data" class="form-signin col-md-8 mx-auto">
             @csrf
             <div class="form-group">
-                <label>Project Thumbnail</label>
+                <label>Project File</label>
                 <input type="file" class="form-control " name="file" required>
                 @if ($errors->has('file'))
                 <span class="text-danger">{{ $errors->first('file') }}</span>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <button type="sumbit" class="btn peach-bg text-white col-lg-12 rounded font-16 pt-2 pb-2">Check</button>
-        </form> -->
-        <iframe width="800" height="550" style="border:none;" src="https://quillseotools.com/plagiarism-checker#mainbox"></iframe>
+        </form>
+        <!-- <iframe width="800" height="550" style="border:none;" src="https://quillseotools.com/plagiarism-checker#mainbox"></iframe> -->
     </div>
 </div>

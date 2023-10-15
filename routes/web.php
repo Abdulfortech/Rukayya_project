@@ -40,7 +40,7 @@ Route::post('/student/add', [UserController::class, 'storeStudent'])->name('crea
 Route::get('/students', [UserController::class, 'students'])->middleware('auth');
 // plagiarism checker
 Route::get('/plagiarism', [PlagiarismController::class, 'index'])->middleware('auth');
-Route::post('/plagiarism', [PlagiarismController::class, 'check'])->name('check')->middleware('auth');
+Route::post('/plagiarism', [PlagiarismController::class, 'newCheck'])->name('check')->middleware('auth');
 
 
 // students route
